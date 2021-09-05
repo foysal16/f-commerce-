@@ -4,10 +4,11 @@ import {
   Grid,
   Paper,
   TextField,
-  Link,
   Typography,
 } from "@material-ui/core";
 import React from "react";
+
+import { Link } from "react-router-dom";
 
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 
@@ -59,7 +60,6 @@ const login = () => {
           <Button
             type="submit"
             color="primary"
-            bgColor="#000000"
             fullWidth
             variant="contained"
             style={btstyle}
@@ -74,8 +74,8 @@ const login = () => {
           </Typography>
 
           <Typography>
-            Do you have any account ?
-            <Link style={linkTypo} href="#">
+            Don't have any account ?
+            <Link style={linkTypo} to="/SignUp">
               Sign Up
             </Link>
           </Typography>

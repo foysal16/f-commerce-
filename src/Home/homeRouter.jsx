@@ -1,6 +1,5 @@
 import React from "react";
-
-import Navbar from "../Dashboard/Navbar/navbar";
+import NavbarHome from "./Navbar/navbarHome";
 import BodyHome from "./Body/bodyHome";
 import { Grid, makeStyles } from "@material-ui/core";
 
@@ -15,7 +14,7 @@ const HomeRouter = () => {
 
   return (
     <div>
-      <Navbar />
+      <NavbarHome />
       <Grid container>
         <Grid item sm={12}>
           <BodyHome />

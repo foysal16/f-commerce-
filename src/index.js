@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
+import {Provider} from "react-redux"
+import {store} from "./Store/store";
+
 const theme = createTheme({
  palette: {
     primary: {
@@ -27,11 +30,11 @@ const theme = createTheme({
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

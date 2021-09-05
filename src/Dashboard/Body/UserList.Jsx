@@ -1,5 +1,5 @@
-import { Container, makeStyles } from "@material-ui/core";
 import React from "react";
+import { Container, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -7,14 +7,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BodyHome = () => {
+const UserList = () => {
   const classes = useStyles();
-
   return (
     <Container className={classes.container}>
-      <h1>Body</h1>
+      <h1>USER LIST</h1>
     </Container>
   );
 };
 
-export default BodyHome;
+export default UserList;

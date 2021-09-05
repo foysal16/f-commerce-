@@ -16,8 +16,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import Notifications from "@material-ui/icons/Notifications";
 import CancelIcon from "@material-ui/icons/Cancel";
 
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-//import ProfileImage from "./Components/media/2.jpg";
+import ProfileImage from "../../Components/media/2.jpg";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -93,10 +92,10 @@ const Navbar = () => {
     <AppBar position="fixed">
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.logoLg}>
-          F-commerce{" "}
+          Foysal Ahammed{" "}
         </Typography>
         <Typography variant="h6" className={classes.logoSm}>
-          F-com
+          Foysal
         </Typography>
         <div className={classes.search}>
           <SearchIcon className={classes.searchIconLeft} />
@@ -124,7 +123,7 @@ const Navbar = () => {
           <Badge badgeContent={2} className={classes.badge} color="error">
             <Notifications />
           </Badge>
-          <Avatar alt="Foysal" src={<AccountCircleIcon />} />
+          <Avatar alt="Foysal" src={ProfileImage} />
         </div>
       </Toolbar>
     </AppBar>

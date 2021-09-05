@@ -2,7 +2,6 @@ import React from "react";
 
 import Navbar from "./Navbar/navbar";
 import LeftBar from "./Body/leftBar";
-import RightBar from "./Body/rightBar";
 import MainDashboad from "./Body/maindashbody";
 
 import { Grid, makeStyles } from "@material-ui/core";
@@ -30,9 +29,6 @@ const Dashboard = () => {
         </Grid>
         <Grid item sm={7} xs={10}>
           <MainDashboad />
-        </Grid>
-        <Grid item sm={3} className={classes.right}>
-          <RightBar />
         </Grid>
       </Grid>
     </div>

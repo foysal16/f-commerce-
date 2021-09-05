@@ -1,9 +1,18 @@
-import { Container, makeStyles, Typography } from "@material-ui/core";
+import {
+  Container,
+  makeStyles,
+  MenuItem,
+  MenuList,
+  //Typography,
+} from "@material-ui/core";
 
-import HomeIcon from "@material-ui/icons/Home";
-import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import PeopleIcon from "@material-ui/icons/People";
+import { Link } from "react-router-dom";
+
+//import HomeIcon from "@material-ui/icons/Home";
+//import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+//import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+//import PeopleIcon from "@material-ui/icons/People";
+//import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 import React from "react";
 
@@ -39,29 +48,25 @@ const useStyles = makeStyles((theme) => ({
 
 const LeftBar = () => {
   const classes = useStyles();
+  //const history = useHistory();
+
+  /* const UserListClick = () => {
+    history.push("/userList");
+  }; */
+
   return (
     <Container className={classes.container}>
-      <div className={classes.item}>
-        <HomeIcon className={classes.icon} />
-        <Typography className={classes.text}>Dashboad</Typography>
-      </div>
-      <div className={classes.item}>
-        <ShoppingBasketIcon className={classes.icon} />
-        <Typography className={classes.text}>Products</Typography>
-      </div>
-      <div className={classes.item}>
-        <ShoppingCartIcon className={classes.icon} />
-        <Typography className={classes.text}>Orders</Typography>
-      </div>
-
-      <div className={classes.item}>
-        <PeopleIcon className={classes.icon} />
-        <Typography className={classes.text}>Customers</Typography>
-      </div>
-      <div className={classes.item}>
-        <HomeIcon className={classes.icon} />
-        <Typography className={classes.text}>Log Out</Typography>
-      </div>
+      <MenuList>
+        <MenuItem component={Link} to="/maindashbody">
+          Dashboard
+        </MenuItem>
+        <MenuItem>Products</MenuItem>
+        <MenuItem>Orders</MenuItem>
+        <MenuItem component={Link} to="/userList">
+          Customers
+        </MenuItem>
+        <MenuItem>Log Out</MenuItem>
+      </MenuList>
     </Container>
   );
 };
