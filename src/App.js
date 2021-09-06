@@ -3,29 +3,27 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Login from "./Login/login"
 import SignUp from "./Registraion/signup"
-import Dashboad from "./Dashboard/dashboad"
 import HomeRouter from './Home/homeRouter';
+///import HomeComponent from '../src/Components/Header/HeaderComponent'
+
 
 
 
 function App() {
   return (
     <BrowserRouter>
+    {/*<HomeComponent />*/}
       <Switch>
         <Route exact path="/">
           <HomeRouter />
         </Route>
-
+        
         <Route exact path="/signup">
           <SignUp />
         </Route>
 
         <Route exact path="/login">
           <Login />
-        </Route>
-
-        <Route exact path="/dashboard">
-          <Dashboad />
         </Route>
       </Switch>
     </BrowserRouter>

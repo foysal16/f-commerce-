@@ -10,17 +10,6 @@ import {Provider} from "react-redux"
 import {store} from "./Store/store";
 
 const theme = createTheme({
- palette: {
-    primary: {
-      main: "#212121",
-      light: "#ffffff",
-      dark: "#876834"
-    },
-    secondary: {
-      main: "#876834",
-    }
-  },
-
   typography: {
     fontFamily: [
       'Poppins', 'sans-serif'

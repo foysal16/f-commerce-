@@ -27,8 +27,9 @@ export const addNewUserRequest = (newUserR) => {
                 username: username,
                 password: password,
             });
+            console.log(data, "User Data");
+
             dispatch(newUserAdd(data));
 
-            console.log(data, "User Data");
         };
     }

@@ -58,14 +58,14 @@ const SignUp = () => {
 
   const handleNewUser = (n) => {
     n.preventDefalut();
-    if (signUpNew.password === setPassConfirm) {
-      setIsPassMatched(true);
-      dispatch(addNewUserRequest(signUpNew));
-      console.log("sign Up");
-      history.push("/login");
-    } else {
-      setIsPassMatched(false);
-    }
+    setIsPassMatched(true);
+    dispatch(addNewUserRequest(signUpNew));
+    console.log(signUpNew, "===sign Up");
+    history.push("/login");
+    // if (signUpNew.password === setPassConfirm) {
+    // } else {
+    //   setIsPassMatched(false);
+    // }
   };
   console.log(setIsPassMatched, "sign Up setIsPassMatched");
 
