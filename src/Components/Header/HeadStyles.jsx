@@ -71,7 +71,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   headerComponent: {
-    padding: theme.spacing(8, 40),
+    padding: theme.spacing(1, 40),
   },
 
   NavLink: {

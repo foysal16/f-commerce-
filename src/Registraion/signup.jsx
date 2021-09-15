@@ -2,7 +2,7 @@ import { Avatar, Button, Grid, Paper, TextField } from "@material-ui/core";
 import React from "react";
 
 import { useState } from "react";
-import { addNewUserRequest } from "../Store/Actions/LoginResgistration/SignUpAction";
+import { requestNewUserAdd } from "../Store/Action/Users/Registration";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import AddCircleRoundedIcon from "@material-ui/icons/AddCircleRounded";
@@ -36,38 +36,33 @@ const linkTypo = {
   fontFamily: "Poppins",
 };
 const SignUp = () => {
-  const history = useHistory();
-  const dispatch = useDispatch();
-
-  const [signUpNew, setSignUpNew] = useState({
-    firstname: "",
-    lastname: "",
+  const [signUpInfo, setSignUpInfo] = useState({
     email: "",
     username: "",
     password: "",
+    firstname: "",
+    lastname: "",
   });
 
-  const [setPassConfirm, PassConfirm] = useState("");
-  const [setPassMatch, setIsPassMatched] = useState(true);
+  const [confirmPass, setConfirmPass] = useState("");
+  const [isPassMatched, setIsPassMatched] = useState(true);
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-  const seNewUserReg = (key, n) => {
-    setSignUpNew({ ...signUpNew, [key]: n.target.value });
+  const setRegValue = (key, e) => {
+    setSignUpInfo({ ...signUpInfo, [key]: e.target.value });
   };
 
-  console.log(signUpNew, "sign Up");
-
-  const handleNewUser = (n) => {
-    n.preventDefalut();
-    setIsPassMatched(true);
-    dispatch(addNewUserRequest(signUpNew));
-    console.log(signUpNew, "===sign Up");
-    history.push("/login");
-    // if (signUpNew.password === setPassConfirm) {
-    // } else {
-    //   setIsPassMatched(false);
-    // }
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    if (signUpInfo.password === confirmPass) {
+      setIsPassMatched(true);
+      dispatch(requestNewUserAdd(signUpInfo));
+      history.push("/login");
+    } else {
+      setIsPassMatched(false);
+    }
   };
-  console.log(setIsPassMatched, "sign Up setIsPassMatched");
 
   return (
     <Grid>
@@ -77,15 +72,15 @@ const SignUp = () => {
             <AddCircleRoundedIcon />
           </Avatar>
           <h2>Sign Up</h2>
-          <form onSubmit={() => handleNewUser}>
+          <form onSubmit={handleSignUp}>
             <TextField
               type="text"
               label="Username"
               placeholder="Enter Username"
               fullWidth
               required
-              value={signUpNew.username}
-              onChange={(n) => seNewUserReg("username", n)}
+              value={signUpInfo.username}
+              onChange={(e) => setRegValue("username", e)}
             />
 
             <TextField
@@ -94,8 +89,8 @@ const SignUp = () => {
               fullWidth
               required
               style={textFiledStyle}
-              value={signUpNew.firstname}
-              onChange={(n) => seNewUserReg("firstname", n)}
+              value={signUpInfo.firstname}
+              onChange={(e) => setRegValue("firstname", e)}
             />
 
             <TextField
@@ -104,8 +99,8 @@ const SignUp = () => {
               fullWidth
               style={textFiledStyle}
               required
-              value={signUpNew.lastname}
-              onChange={(n) => seNewUserReg("lastname", n)}
+              value={signUpInfo.lastname}
+              onChange={(e) => setRegValue("lastname", e)}
             />
 
             <TextField
@@ -115,8 +110,8 @@ const SignUp = () => {
               fullWidth
               style={textFiledStyle}
               required
-              value={signUpNew.email}
-              onChange={(n) => seNewUserReg("email", n)}
+              value={signUpInfo.email}
+              onChange={(e) => setRegValue("email", e)}
             />
 
             <TextField
@@ -125,8 +120,8 @@ const SignUp = () => {
               type="password"
               fullWidth
               style={textFiledStyle}
-              value={signUpNew.password}
-              onChange={(n) => seNewUserReg("password", n)}
+              value={signUpInfo.password}
+              onChange={(e) => setRegValue("password", e)}
               required
             />
 
@@ -137,11 +132,11 @@ const SignUp = () => {
               fullWidth
               style={textFiledStyle}
               required
-              value={setPassConfirm}
-              onChange={(n) => PassConfirm(n.target.value)}
+              value={confirmPass}
+              onChange={(e) => setConfirmPass(e.target.value)}
             />
 
-            {!setPassMatch && <p>Password not Match!</p>}
+            {!isPassMatched && <p>Password not Match!</p>}
 
             <Button
               color="primary"

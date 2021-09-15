@@ -1,29 +1,31 @@
-import { actionTypes } from "../../Actions/ActionTypes"
+import { actionTypes } from "../../actionTypes";
 
 const initialState = {
     users: [],
 };
+const addUserReducer = (state = initialState, action) => {
 
 
-const SignUpReducer =(state = initialState, action) =>{
-    switch (action.type){
-        case actionTypes.NEW_USER:
+    switch (action.type) {
+        case actionTypes.ADD_NEW_USER:
             return {
                 ...state,
                 users: [
                     ...state.users,
-                    {   
+                    {
+                        email: action.payload.email,
                         username: action.payload.username,
+                        password: action.payload.password,
                         firstname: action.payload.firstname,
                         lastname: action.payload.lastname,
-                        password: action.payload.password,
-                        email: action.payload.email,
                     },
                 ],
             };
+
+            
         default:
             return state;
     }
-}
+};
 
-export default SignUpReducer;
+export default addUserReducer;

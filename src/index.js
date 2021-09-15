@@ -7,7 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import {Provider} from "react-redux"
-import {store} from "./Store/store";
+import {store, persistor} from "./Store/store";
+import { PersistGate } from 'redux-persist/integration/react';
 
 const theme = createTheme({
   typography: {
@@ -15,14 +16,16 @@ const theme = createTheme({
       'Poppins', 'sans-serif'
     ].join(','),
   },
-})
+});
 
 
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <PersistGate persistor = {persistor}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );

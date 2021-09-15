@@ -27,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
   },
 
+  navbar: {
+    backgroundColor: "#000000",
+  },
+
   search: {
     display: "flex",
     alignItems: "center",
@@ -129,7 +133,7 @@ const NavbarHome = () => {
   };
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" className={classes.navbar}>
       <Toolbar className={classes.toolbar}>
         <Typography className={classes.logoLg}>
           <img className={classes.logImage} alt="Foysal" src={ProfileImage} />
