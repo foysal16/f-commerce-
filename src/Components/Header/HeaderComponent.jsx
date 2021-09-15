@@ -18,7 +18,7 @@ const HeaderComponent = () => {
       <SideNav />
       <Box className={classes.headerComponent}>
         <Switch>
-          <Route exact path="/dashboard" render={() => <Dashboard />} />
+          <Route exact path="/" render={() => <Dashboard />} />
           <Route exact path="/productList" render={() => <ProductList />} />
           <Route exact path="/users" render={() => <Users />} />
           <Route exact path="/orders" render={() => <Orders />} />
