@@ -1,8 +1,14 @@
 import React from "react";
+import NavbarHomeComponent from "../../../../src/Components/Header/HeaderComponent";
+import { useStyles } from "../../Header/HeadStyles";
 const Dashboard = () => {
+  const classes = useStyles();
   return (
     <div>
-      <h2> Our Dashboard</h2>
+      <NavbarHomeComponent />
+      <div className={classes.headerComponent}>
+        <h2> Our Dashboard</h2>
+      </div>
     </div>
   );
 };

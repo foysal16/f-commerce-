@@ -4,6 +4,7 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import EventAvailableIcon from "@material-ui/icons/EventAvailable";
 import GroupAddIcon from "@material-ui/icons/GroupAdd";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import EventAvailableNew from "@material-ui/icons/EventAvailable";
 import { useStyles } from "../HeadStyles";
 import { NavLink } from "react-router-dom";
 

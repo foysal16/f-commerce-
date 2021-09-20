@@ -4,8 +4,7 @@ import styled from "styled-components";
 
 const CategorieContainer = styled.div`
   flex: 1;
-  margin: 3px;
-  height: 70vh;
+  height: 60vh;
   position: relative;
 `;
 
@@ -27,7 +26,7 @@ const Info = styled.div`
   justify-content: center;
 `;
 const Title = styled.h1`
-  margin-bottom: 30px;
+  text-align: center;
 `;
 const Button = styled.button`
   border-radius: none;

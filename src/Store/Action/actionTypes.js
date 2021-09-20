@@ -5,4 +5,11 @@ export const actionTypes = {
   GET_USERS: "GET_USERS",
   EDIT_USERS: "EDIT_USERS",
   DELETE_USER: "DELETE_USER",
+
+  //Products Actions Types.........
+
+  PRODUCT_ADD: "PRODUCT_ADD",
+  PRODUCT_EDIT: "PRODUCT_EDIT",
+  PRODUCT_DELETE: "PRODUCT_DELETE",
+  PRODUCT_LIST: "PRODUCT_LIST",
 };

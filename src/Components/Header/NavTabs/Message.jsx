@@ -35,42 +35,44 @@ const Messages = () => {
   ];
 
   return (
-    <Box>
-      <IconButton
-        aria-controls="Messages"
-        aria-haspopup="true"
-        onClick={handleClick}
-        color="inherit"
-      >
-        <Badge badgeContent={4} color="secondary">
-          <ForumIcon />
-        </Badge>
-      </IconButton>
-      <Menu
-        id="Messages"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        className={classes.menu}
-      >
-        <List className={classes.navList}>
-          {dropDownData.map((item, i) => (
-            <MenuItem key={i} component={ListItem} onClick={handleClose}>
-              <ListItemIcon>
-                <Avatar className={classes.Ulavter}>
-                  {item.label[0].toUpperCase()}
-                </Avatar>
-              </ListItemIcon>
-              <ListItemText
-                primary={item.label}
-                secondary={item.desc}
-              ></ListItemText>
-            </MenuItem>
-          ))}
-        </List>
-      </Menu>
-    </Box>
+    <div>
+      <Box>
+        <IconButton
+          aria-controls="Messages"
+          aria-haspopup="true"
+          onClick={handleClick}
+          color="inherit"
+        >
+          <Badge badgeContent={4} color="secondary">
+            <ForumIcon />
+          </Badge>
+        </IconButton>
+        <Menu
+          id="Messages"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+          className={classes.menu}
+        >
+          <List className={classes.navList}>
+            {dropDownData.map((item, i) => (
+              <MenuItem key={i} component={ListItem} onClick={handleClose}>
+                <ListItemIcon>
+                  <Avatar className={classes.Ulavter}>
+                    {item.label[0].toUpperCase()}
+                  </Avatar>
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.label}
+                  secondary={item.desc}
+                ></ListItemText>
+              </MenuItem>
+            ))}
+          </List>
+        </Menu>
+      </Box>
+    </div>
   );
 };
 export default Messages;

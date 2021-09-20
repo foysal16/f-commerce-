@@ -1,6 +1,8 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
 import Categories from "./HomePage/Categories";
+import Footer from "./HomePage/Footer";
+import Products from "./HomePage/Products";
 import Slider from "./HomePage/Slider";
 
 const useStyles = makeStyles((theme) => ({
@@ -16,6 +18,8 @@ const BodyHome = () => {
     <div className={classes.container}>
       <Slider />
       <Categories />
+      <Products />
+      <Footer />
     </div>
   );
 };

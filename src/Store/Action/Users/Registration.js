@@ -1,26 +1,24 @@
 import axios from "axios";
 import { actionTypes } from "../actionTypes";
 
-export const addNewUser = (newUser) => {
+export const addNewUser = (response) => {
   return {
     type: actionTypes.SET_NEW_USER_ADD,
-    payload: newUser,
+    payload: response,
   };
 };
 
 export const requestNewUserAdd = (newUser) => {
-  const { email, username, password, firstname, lastname } = newUser;
-
-  return async (dispatch, action) => {
-    const { data } = await axios.post("http://localhost:8080/signup", {
-      email: email,
-      username: username,
-      password: password,
-      firstname: firstname,
-      lastname: lastname,
+  return async (dispatch) => {
+    const { response } = await axios.post("http://localhost:8080/signup", {
+      email: newUser.email,
+      username: newUser.username,
+      password: newUser.password,
+      firstname: newUser.firstname,
+      lastname: newUser.lastname,
     });
-    console.log(data, "=======");
-    dispatch(addNewUser(data));
+    console.log(response, "=======");
+    dispatch(addNewUser(response));
   };
 };
 
@@ -45,18 +43,18 @@ export const loadUsers = () => {
   };
 };
 
-export const userDeleted = (id) => {
+export const userDeleted = (_id) => {
   return {
     type: actionTypes.DELETE_USER,
   };
 };
 
-export const deleteUser = (id) => {
+export const deleteUser = (_id) => {
   return async (dispatch, getState) => {
     const { authReducerStore } = getState();
     const { token } = authReducerStore.currentLoginUser;
     try {
-      const { data } = await axios.delete(`http://localhost:8080/user/${id}`, {
+      const { data } = await axios.delete(`http://localhost:8080/user/${_id}`, {
         headers: { authorization: `bearer ${token}` },
       });
       dispatch(userDeleted());

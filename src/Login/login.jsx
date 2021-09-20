@@ -6,7 +6,7 @@ import {
   Typography,
   TextField,
 } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Link, useHistory } from "react-router-dom";
 
@@ -36,11 +36,8 @@ const btstyle = {
 const linkTypo = { color: "#FF4C29", fontFamily: "Poppins" };
 
 const Login = () => {
-  const { error } = useSelector((store) => store.authReducerStore);
-  const [loginInfo, setLoginInfo] = useState({
-    email: "",
-    password: "",
-  });
+  const { role } = useSelector((store) => store.authReducerStore);
+  const [loginInfo, setLoginInfo] = useState([]);
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -52,8 +49,22 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     dispatch(requestLogin(loginInfo));
-    history.push("/");
+
+    console.log(loginInfo, "===credential");
   };
+
+  useEffect(() => {
+    console.log(role);
+    if (role) {
+      if (role === "admin") {
+        history.push("/dashboard");
+      } else {
+        history.push("/");
+      }
+    }
+  }, [history, role]);
+
+  console.log(role, " User Info");
 
   return (
     <Grid>

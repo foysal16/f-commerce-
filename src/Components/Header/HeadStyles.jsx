@@ -59,6 +59,7 @@ export const useStyles = makeStyles((theme) => ({
 
   menu: {
     marginTop: "52px",
+    color: "#000000",
   },
 
   iconColor: {
@@ -75,6 +76,20 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   NavLink: {
+    color: "#ffffff",
+  },
+
+  table: {
+    minWidth: 1000,
+  },
+
+  profileAvatar: {
+    width: "150px",
+    height: "150px",
+    marginTop: "20px",
+    marginBottom: "50px",
+  },
+  userProfileList: {
     color: "#ffffff",
   },
 }));

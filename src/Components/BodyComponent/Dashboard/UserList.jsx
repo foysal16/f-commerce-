@@ -1,10 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  withStyles,
-  Theme,
-  createStyles,
-  makeStyles,
-} from "@material-ui/core/styles";
+import { withStyles, createStyles, makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Table from "@material-ui/core/Table";
@@ -19,8 +14,9 @@ import {
   deleteUser,
   loadUsers,
 } from "../../../Store/Action/Users/Registration";
+import NavbarHomeComponent from "../../../Components/Header/HeaderComponent";
 
-const StyledTableCell = withStyles((theme: Theme) =>
+const StyledTableCell = withStyles((theme) =>
   createStyles({
     head: {
       backgroundColor: theme.palette.common.black,
@@ -32,7 +28,7 @@ const StyledTableCell = withStyles((theme: Theme) =>
   })
 )(TableCell);
 
-const StyledTableRow = withStyles((theme: Theme) =>
+const StyledTableRow = withStyles((theme) =>
   createStyles({
     root: {
       "&:nth-of-type(odd)": {
@@ -52,20 +48,21 @@ const UserList = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const { users } = useSelector((state) => state.userData);
-
+  const users = useSelector((store) => store.userData);
+  console.log(users, null, " ");
   useEffect(() => {
     dispatch(loadUsers());
   }, []);
 
-  const handleDelete = (id) => {
+  const handleDelete = (_id) => {
     if (window.confirm("Are you sure Wanted to delete the user?")) {
-      dispatch(deleteUser(id));
+      dispatch(deleteUser(_id));
     }
   };
 
   return (
     <div>
+      <NavbarHomeComponent />
       <h2 style={{ fontSize: "60px", textAlign: "center" }}>OUR USERS LIST</h2>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
@@ -75,12 +72,12 @@ const UserList = () => {
               <StyledTableCell align="left">Last Name</StyledTableCell>
               <StyledTableCell align="left">UserName</StyledTableCell>
               <StyledTableCell align="left">Email</StyledTableCell>
-              <StyledTableCell align="left">Actions</StyledTableCell>
+              <StyledTableCell align="left">Action</StyledTableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          {/* <TableBody>
             {users.map((user) => (
-              <StyledTableRow key={user.id}>
+              <StyledTableRow key={user._id}>
                 <StyledTableCell component="th" scope="row">
                   {user.firstname}
                 </StyledTableCell>
@@ -96,7 +93,7 @@ const UserList = () => {
                     <Button color="primary">Edit</Button>
                     <Button
                       color="secondary"
-                      onClick={() => handleDelete(user.id)}
+                      onClick={() => handleDelete(user._id)}
                     >
                       Delete
                     </Button>
@@ -105,7 +102,7 @@ const UserList = () => {
                 </StyledTableCell>
               </StyledTableRow>
             ))}
-          </TableBody>
+          </TableBody> */}
         </Table>
       </TableContainer>
     </div>
